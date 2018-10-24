@@ -23,7 +23,7 @@ const Test = class extends EventHandler {
 		if (typeof this.setupFunction == 'function') {
 			try {
 				this.setupFunction(this)
-				this.trigger(Test.SetupSecceeded, this, context)
+				this.trigger(Test.SetupSecceeded, this)
 			} catch (e) {
 				const context = {
 					message: 'Failed during setup',
@@ -56,7 +56,7 @@ const Test = class extends EventHandler {
 			if (typeof this.teardownFunction == 'function') {
 				try {
 					this.teardownFunction(this)
-					this.trigger(Test.TeardownSucceeded, this, context)
+					this.trigger(Test.TeardownSucceeded, this)
 				} catch (e) {
 					this.trigger(Test.TeardownFailed, this, e)
 					console.error('Teardown error', e)
@@ -132,6 +132,11 @@ const Test = class extends EventHandler {
 			throw new Error(`${val1} != ${val2}`)
 		}
 		return
+	}
+	assertNotEqual(val1, val2){
+		if(val1 == val2){
+			throw new Error(`${val1} == ${val2} (and it should not)`)
+		}
 	}
 }
 
