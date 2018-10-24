@@ -4,9 +4,21 @@
 		<title>Potassium Tests</title>
 		<style>
 			:root {
-				--action-color: blue;
-				--success-color: green;
-				--failure-color: red;
+				--dark-yellow:	rgb(252, 228, 101);
+				--yellow:		rgb(255, 236, 148);
+				--light-yellow:	rgb(255, 240, 170);
+
+				--dark-green:	rgb(36, 186, 136);
+				--green:		rgb(86, 236, 186);
+				--light-green:	rgb(180, 231, 216);
+
+				--dark-red:		rgb(200, 0, 0);
+				--red:			rgb(255, 0, 0);
+				--light-red:	rgb(255, 200, 200);
+
+				--action-color: var(--dark-yellow);
+				--success-color: var(--dark-green);
+				--failure-color: var(--red);
 
 				--major-space: 35px;
 				--medium-space: 25px;
@@ -41,6 +53,14 @@
 			.test-result > .name {
 				margin: 0;
 				font-size: 1.1rem;
+			}
+
+			.test-result[data-status=passed] > .status:before {
+				content: "🌸 ";
+			}
+
+			.test-result[data-status=failed] > .status:before {
+				content: "⚡️ ";
 			}
 
 			.test-result[data-status=started] > .name {
