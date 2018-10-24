@@ -1,0 +1,6 @@
+docs/*
+node_modules/*
+.esdoc.json
+.prettierignore
+.gitignore
+*.md
