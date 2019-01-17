@@ -1,6 +1,6 @@
 {
   "name": "potassium-test",
-  "version": "0.1.0-alpha0",
+  "version": "1.0.0",
   "description": "A testing tool for PotassiumES libraries and applications",
   "main": "",
   "scripts": {
