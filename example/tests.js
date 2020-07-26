@@ -6,20 +6,20 @@ import TestResultsRenderer from '../src/TestResultsRenderer.js'
 const tests = []
 
 tests.push(
-	new Test('Test 1', test => {
+	new Test('Test 1', (test) => {
 		test.assertEqual(123, 123)
 		test.assertEqual('ssw', 'ssw')
 	})
 )
 
 tests.push(
-	new Test('Test 2', test => {
+	new Test('Test 2', (test) => {
 		test.assertEqual(123, 'BOGUS')
 	})
 )
 
 tests.push(
-	new Test('Test 3', test => {
+	new Test('Test 3', (test) => {
 		throw new Error('Nope!')
 	})
 )

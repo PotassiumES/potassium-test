@@ -5,8 +5,9 @@
   "main": "",
   "scripts": {
     "host": "http-server .",
-    "eslint": "eslint src example --fix",
-    "prettier": "prettier --write src/**/*.{js,json} example/**/*.{js,json}"
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "prettier": "prettier --write src/*.{js,json} src/**/*.{js,json} example/*.{js,json}"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,23 @@
     "url": "https://github.com/PotassiumES/potassium-test/issues"
   },
   "homepage": "https://PotassiumES.org/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "prettier": {
     "semi": false,
     "useTabs": true,
     "printWidth": 120,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "none"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -45,17 +58,19 @@
       "no-undef": "off",
       "no-console": "off",
       "prefer-const": "warn",
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "prettier/prettier": "error"
     }
   },
   "eslintIgnore": [],
   "devDependencies": {
-    "eslint": "^5.0.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "http-server": "^0.11.1",
-    "npm-run-all": "^4.1.3",
-    "prettier": "^1.13.7"
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "http-server": "^0.12.3",
+    "prettier": "^2.0.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
   },
   "dependencies": {}
 }

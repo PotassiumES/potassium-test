@@ -48,9 +48,7 @@ const Runner = class extends EventHandler {
 	async runAndLog(tests) {
 		const results = await Runner.run(tests)
 		console.log(
-			`total: ${results.length}  passed: ${results.passedCount}  failed: ${results.failedCount} assertions: ${
-				results.assertionCount
-			}`
+			`total: ${results.length}  passed: ${results.passedCount}  failed: ${results.failedCount} assertions: ${results.assertionCount}`
 		)
 	}
 

@@ -133,34 +133,34 @@ const Test = class extends EventHandler {
 		}
 		return
 	}
-	assertNotEqual(val1, val2){
-		if(val1 == val2){
+	assertNotEqual(val1, val2) {
+		if (val1 == val2) {
 			throw new Error(`${val1} == ${val2} (and it should not)`)
 		}
 	}
-	assertRegExpMatchCount(regExp, value, matchCount=1, flags=''){
-		if(typeof regExp === 'string'){
+	assertRegExpMatchCount(regExp, value, matchCount = 1, flags = '') {
+		if (typeof regExp === 'string') {
 			regExp = new RegExp(regExp)
 		}
 		const result = value.match(regExp)
-		if(result === null){
-			if(matchCount === 0) return
+		if (result === null) {
+			if (matchCount === 0) return
 			throw new Error(`Expected ${matchCount} match(es) but received none: '${value}'.match(${regExp})`)
 		}
-		if(result.length !== matchCount) throw new Error(`Expected ${matchCount} matches: ${result}`)
+		if (result.length !== matchCount) throw new Error(`Expected ${matchCount} matches: ${result}`)
 	}
-	assertRegExpMatches(regExp, value, matches=[], flags=''){
-		if(typeof regExp === 'string'){
+	assertRegExpMatches(regExp, value, matches = [], flags = '') {
+		if (typeof regExp === 'string') {
 			regExp = new RegExp(regExp, flags)
 		}
 		const result = value.match(regExp)
-		if(result === null){
-			if(matches.length === 0) return
+		if (result === null) {
+			if (matches.length === 0) return
 			throw new Error(`Expected ${matches.length} match(es) but received none: '${value}'.match(${regExp})`)
 		}
-		if(result.length !== matches.length) throw new Error(`${result} !== ${matches} for '${value}'.match(${regExp})`)
-		for(let i=0; i < matches.length; i++){
-			if(matches[i] !== result[i]) throw new Error(`${result} !== ${matches} for '${value}'.match(${regExp})`)
+		if (result.length !== matches.length) throw new Error(`${result} !== ${matches} for '${value}'.match(${regExp})`)
+		for (let i = 0; i < matches.length; i++) {
+			if (matches[i] !== result[i]) throw new Error(`${result} !== ${matches} for '${value}'.match(${regExp})`)
 		}
 	}
 }
